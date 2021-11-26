@@ -1,0 +1,28 @@
+body{
+ background-color: #eee;
+}
+
+a{
+    text-decoration: none;
+    font-size: 15px;
+    color: black;
+}
+
+.navbar{
+    margin:10px;
+    padding-top: 30px;
+}
+
+.nav{
+    padding-top: 30px;
+    display: block;
+}
+
+.nav:hover{
+    color: red;
+}
+
+.content{
+    margin-top: 50px;
+    color: white;
+}
