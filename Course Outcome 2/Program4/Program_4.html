@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>Change Background Color</title>
+    </head>
+    <body>
+        <center>
+            <p id="colorcode"></p>
+            <button style="margin-top:200px; padding:12px;background-color: white; border-radius:4px; border:1px solid black;" onclick="changebg()">
+                <h1 style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Click Here to Change Background Color</h1>
+            </button>
+        </center>
+        <script>
+            function changebg()
+            {
+                const randomColor = Math.floor(Math.random()*12345678).toString(16);
+                document.body.style.backgroundColor = "#" + randomColor;
+                color.innerHTML = "#" + randomColor;
+            }
+        </script>
+    </body>
+</html>

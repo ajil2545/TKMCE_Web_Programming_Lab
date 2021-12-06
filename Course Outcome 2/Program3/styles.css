@@ -1,0 +1,13 @@
+    body
+            {
+                background-color: white;
+                color: white;
+                font-family: "Audiowide", sans-serif;
+            }   
+    h2{
+        color:crimson;
+    }
+    select
+    {
+        width:45%;
+    }

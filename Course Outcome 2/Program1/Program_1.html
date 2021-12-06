@@ -1,0 +1,130 @@
+<html>
+    <head>
+        <title>Predefined functions</title>
+    </head>
+    <body>
+        <center><h1>String Functions</h1></center>
+        <table align="center" cellpadding="2"cellspacing="2">
+            <tr>
+                <th>Enter the string</th>
+                <th><input type="text" name="string" id="str"></th>
+            </tr>
+            <tr>
+                <th>Enter Start</th>
+                <th><input type="text"name="start" id="s"></th>
+            </tr>
+            <tr>
+                <th>Enter end</th>
+                <th><input type="text" name="end" id="e"></th>
+            </tr>
+            <tr>
+                <th>Sliced string</th>
+                <th><input type="text"name="sliced" id="sliced"></th>
+            </tr>
+            <tr>
+                <th colspan="2" onclick="slice_str()"><button>Slice</button></th>
+            </tr>
+        </table>
+        <table align="center" cellpadding="2"cellspacing="2">
+            <tr>
+                <th>Uppercase</th>
+                <th><input type="text" name="up" id="upper"></th>
+            </tr>
+            <tr>
+                <th>Lowercase</th>
+                <th><input type="text" name="low" id="lower"></th>
+            </tr>
+            <tr>
+                <th>String Length</th>
+                <th><input type="text" name="len" id="len"></th>
+            </tr>
+            <tr>
+                <th>Sub String</th>
+                <th><input type="text" name="sub" id="sub"></th>
+            </tr>
+            <tr>
+                <th>Replace String</th>
+                <th><input type="text" name="rep" id="rep"></th>
+            </tr>
+            <tr>
+                <th colspan="2" onclick="str_fn()"><button>Generate</button></th>
+            </tr>
+        </table>
+        <hr>
+        <center><h1>Math Functions</h1></center>
+        <table align="center" cellpadding="2"cellspacing="2">
+            <tr>
+                <th>Enter the number</th>
+                <th><input type="number"name="num" id="n"></th>
+            </tr>
+            <tr>
+                <th>round()</th>
+                <th><input type="number"name="rnum" id="round"></th>
+            </tr>
+            <tr>
+                <th>ceil()</th>
+                <th><input type="text" name="ceil" id="ceil"></th>
+            </tr>
+            <tr>
+                <th>floor()</th>
+                <th><input type="text" name="floor" id="floor"></th>
+            </tr>
+            <tr>
+                <th>trunc()</th>
+                <th><input type="text" name="trunc" id="trunc"></th>
+            </tr>
+            <tr>
+                <th>sqrt()</th>
+                <th><input type="text" name="sqr" id="sqr"></th>
+            </tr>
+            <tr>
+                <th>sin()</th>
+                <th><input type="text" name="sin" id="sin"></th>
+            </tr>
+            <tr>
+                <th colspan="2" onclick="math_fn()"><button>Generate</button></th>
+            </tr>
+        </table>
+        <script>
+            function slice_str()
+            {
+                var a =document.getElementById("str").value;
+                var b =document.getElementById("s").value;
+                var c =document.getElementById("e").value;
+                var sl =a.slice(b,c);
+                document.getElementById("sliced").value=sl;
+                
+            } 
+            function str_fn()
+            {
+                var a =document.getElementById("str").value;
+                var u =a.toUpperCase();
+                document.getElementById("upper").value=u;
+                var l =a.toLowerCase();
+                document.getElementById("lower").value=l;
+                var len =a.length;
+                document.getElementById("len").value=len;
+                var sub =a.substr(3,4);
+                document.getElementById("sub").value=sub;
+                var r =a.replace(a,"Name Changed");
+                document.getElementById("rep").value=r;
+            }
+            function math_fn()
+            {
+                var num=document.getElementById("n").value;
+                var r=Math.round(num);
+                document.getElementById("round").value=r;
+                var c=Math.ceil(num);
+                document.getElementById("ceil").value=c;
+                var f=Math.floor(num);
+                document.getElementById("floor").value=f;
+                var t=Math.trunc(num);
+                document.getElementById("trunc").value=t;
+                var sqr=Math.sqrt(num);
+                document.getElementById("sqr").value=sqr;
+                var sin=Math.sin(num * Math.PI / 180);
+                document.getElementById("sin").value=sin;
+            }
+        </script>
+    </body>
+</html>
