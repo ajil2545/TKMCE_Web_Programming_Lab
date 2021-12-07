@@ -1,11 +1,23 @@
 <html>
     <head>
-        <title></title>
+        <title>Change content on mouseover</title>
     </head>
     <body>
-        <div>
-            <p>TKM College of Enginering</p>
-            <img src="http://www.minecampus.com/blog/2020/11/09/tkm-college-of-engineering-tkmcekollam/" alt="TKMCE">
-        </div>
+        <center>
+            <h1 id="heading">Parrot</h1>
+            <img src="parrot.jpg" id="img" width="250px">
+        </center>
+        <script>
+            document.getElementById("img").addEventListener("mouseover", mouseOver);
+            document.getElementById("img").addEventListener("mouseout", mouseOut);
+            function mouseOver() {
+              document.getElementById("img").src="peacock.jpg";
+              document.getElementById("heading").innerHTML = "Peacock";
+            }
+            function mouseOut() {
+              document.getElementById("img").src="parrot.jpg";
+              document.getElementById("heading").innerHTML = "Parrot";
+            }
+        </script>
     </body>
 </html>

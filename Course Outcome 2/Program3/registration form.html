@@ -45,12 +45,12 @@
     <br>
         <center>
         <div style="width:70%; background-color: #000;opacity: 0.8; border-radius: 8px;">
-            <form><br>
+            <form ><br>
                 <h2>REGISTRATION FORM</h2>
                 <table cellspacing="7">
                     <tr>
                         <td>YOUR FULL NAME</td>
-                        <td><input style="width:30%" type="text" name="firstname" placeholder="FIRST NAME"><input  style="width:30%" type="text" name="middlename" placeholder="MIDDLE NAME"><input  style="width:30%" type="text" name="lastname" placeholder="LAST NAME"></td>
+                        <td><input style="width:30%" type="text" id="firstname" name="firstname" placeholder="FIRST NAME"><input  style="width:30%" type="text" name="middlename" placeholder="MIDDLE NAME"><input  style="width:30%" type="text" id="lastname" name="lastname" placeholder="LAST NAME"></td>
                     </tr>
                     <tr>
                         <td>GENDER</td>
@@ -118,5 +118,46 @@
             </form>
         </div>
         </center>
+        <script>
+            function validateform()
+            {
+                let fname = document.forms["regform"]["firstname"].value;
+                if (fname == "") 
+                {
+                    alert("First Name must be filled out");
+                    return false;
+                }
+                let lname = document.forms["regform"]["lastname"].value;
+                if (lname == "") 
+                {
+                    alert("Last Name must be filled out");
+                    return false;
+                }
+                let sex = document.forms["regform"]["gender"].value;
+                if (sex == "") 
+                {
+                    alert("Gender must be filled out");
+                    return false;
+                }
+                let dob = document.forms["regform"]["DOB"].value;
+                if (dob == "") 
+                {
+                    alert("Date of Birth must be filled out");
+                    return false;
+                }
+                if (!email.value.match(/^\S+@\S+\.\S+$/)) 
+                {    
+                    alert('*Invalid Email ID');     
+                }
+                if (number.value.length!=10)
+                {    
+                    alert('*Phone number is required');     
+                }
+                if (password.value.match(/^[A-Za-z]\w{7,14}$/))
+                {    
+                    alert('*Password is required');     
+                }
+            }
+        </script>
     </body>
 </html>
