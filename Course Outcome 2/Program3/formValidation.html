@@ -1,0 +1,84 @@
+<html>
+    <head>
+        <title>Form Validation</title>
+    </head>
+    <body>
+        <center>
+            <form style="margin-top: 100px;" name="regform" onsubmit=validateform()>
+                <h2>REGISTRATION FORM</h2>
+                    <table cellspacing="15">
+                        <tr>
+                            <td>NAME</td>
+                            <td><input type="text" name="name" placeholder="NAME"></td>
+                        </tr>
+                        <tr>
+                            <td>GENDER</td>
+                            <td><input type="radio" name="gender" value="male">MALE<input type="radio" name="gender" value="female">FEMALE</td>
+                        </tr>
+                        <tr>
+                            <td>DATE OF BIRTH</td>
+                            <td><input type="date" name="DOB"></td>
+                        </tr>
+                        <tr>
+                            <td>EMAIL ID</td>
+                            <td><input type="mail" placeholder="EMAIL ID" name="email"></td>
+                        </tr>
+                        <tr>
+                            <td>PHONE</td>
+                            <td><input type="text" placeholder="PHONE NO" name="phone"></td>
+                        </tr>
+                        <tr>
+                            <td>Username</td>
+                            <td><input type="text" placeholder="USERNAME" name="username"></td>
+                        </tr>
+                        <tr>
+                            <td>Password</td>
+                            <td><input type="password" placeholder="PASSWORD" name="password"></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><button style="border-radius:5px;color:white;background-color:crimson;">RESET</button>&nbsp;<input style="border-radius:5px;text-transform: capitalize;"type="SUBMIT"></td>
+                        </tr>
+                    </table>
+            </form>
+        </center>
+        <script>
+            function validateform()
+            {
+                let name = document.forms["regform"]["name"].value;
+                let namecheck="[A-Za-z]{3}";
+                if(!namecheck.test(name))
+                {
+                    alert("Must contain only letters");
+                }
+                let sex = document.forms["regform"]["gender"].value;
+                if (sex == "") 
+                {
+                    alert("Gender must be filled out");
+                }
+                let dob = document.forms["regform"]["DOB"].value;
+                if (dob == "") 
+                {
+                    alert("Date of Birth must be filled out");
+                }
+                let mail = document.forms["regform"]["email"].value;
+                let validmail="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$";
+                if (!validmail.test(mail))
+                {
+                    alert("Invalid Email Id");
+                }
+                let num = document.forms["regform"]["phone"].value;
+                if(isNaN(num))
+                {
+                    alert("Only Numbers can be inserted");
+                }
+                let pswd = document.forms["regform"]["password"].value;
+                let psw= "(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}";
+                if(!pswd.match(psw)) 
+                { 
+                alert('Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters')
+                }
+            }
+        </script>
+    </body>
+</html>
