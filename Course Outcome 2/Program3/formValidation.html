@@ -4,40 +4,32 @@
     </head>
     <body>
         <center>
-            <form style="margin-top: 100px;" name="regform" onsubmit=validateform()>
+            <form style="margin-top: 150px;" name="regform" method="POST" onsubmit=validateform()>
                 <h2>REGISTRATION FORM</h2>
-                    <table cellspacing="15">
+                    <table cellspacing="7">
                         <tr>
                             <td>NAME</td>
-                            <td><input type="text" name="name" placeholder="NAME"></td>
-                        </tr>
-                        <tr>
-                            <td>GENDER</td>
-                            <td><input type="radio" name="gender" value="male">MALE<input type="radio" name="gender" value="female">FEMALE</td>
+                            <td><input type="text" name="name" placeholder="NAME" required></td>
                         </tr>
                         <tr>
                             <td>DATE OF BIRTH</td>
-                            <td><input type="date" name="DOB"></td>
+                            <td><input type="date" name="DOB" required></td>
                         </tr>
                         <tr>
                             <td>EMAIL ID</td>
-                            <td><input type="mail" placeholder="EMAIL ID" name="email"></td>
+                            <td><input type="mail" placeholder="EMAIL ID" name="email" required></td>
                         </tr>
                         <tr>
                             <td>PHONE</td>
-                            <td><input type="text" placeholder="PHONE NO" name="phone"></td>
-                        </tr>
-                        <tr>
-                            <td>Username</td>
-                            <td><input type="text" placeholder="USERNAME" name="username"></td>
+                            <td><input type="text" placeholder="PHONE NO" name="phone" required></td>
                         </tr>
                         <tr>
                             <td>Password</td>
-                            <td><input type="password" placeholder="PASSWORD" name="password"></td>
+                            <td><input type="password" placeholder="PASSWORD" name="password" required></td>
                         </tr>
                         <tr>
                             <td></td>
-                            <td><button style="border-radius:5px;color:white;background-color:crimson;">RESET</button>&nbsp;<input style="border-radius:5px;text-transform: capitalize;"type="SUBMIT"></td>
+                            <td><input type="reset" style="color:white;background-color:crimson;">&nbsp;<input style="text-transform: capitalize;"type="SUBMIT"></td>
                         </tr>
                     </table>
             </form>
@@ -45,38 +37,29 @@
         <script>
             function validateform()
             {
-                let name = document.forms["regform"]["name"].value;
-                let namecheck="[A-Za-z]{3}";
-                if(!namecheck.test(name))
+                let checkname=/^[A-Za-z]+$/;
+                let checkemail=/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
+                let checkpswd=/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/;
+                let checkno=/(6|7|8|9)\d{9}/;
+                let name=document.forms["regform"]["name"].value;
+                if(!checkname.test(name))
                 {
-                    alert("Must contain only letters");
+                    alert('Name must contain only letters');      
                 }
-                let sex = document.forms["regform"]["gender"].value;
-                if (sex == "") 
-                {
-                    alert("Gender must be filled out");
+                let email=document.forms["regform"]["email"].value;
+                if (!checkemail.test(email))
+                {    
+                    alert('Invalid Email ID');     
                 }
-                let dob = document.forms["regform"]["DOB"].value;
-                if (dob == "") 
-                {
-                    alert("Date of Birth must be filled out");
+                let phone=document.forms["regform"]["phone"].value;
+                if (!checkno.test(phone))
+                {    
+                    alert('Phone number must contain only 10 digits');     
                 }
-                let mail = document.forms["regform"]["email"].value;
-                let validmail="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$";
-                if (!validmail.test(mail))
-                {
-                    alert("Invalid Email Id");
-                }
-                let num = document.forms["regform"]["phone"].value;
-                if(isNaN(num))
-                {
-                    alert("Only Numbers can be inserted");
-                }
-                let pswd = document.forms["regform"]["password"].value;
-                let psw= "(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}";
-                if(!pswd.match(psw)) 
-                { 
-                alert('Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters')
+                let password=document.forms["regform"]["password"].value;
+                if (!checkpswd.test(password))
+                {    
+                    alert('Password must contain minimum 8 characters including uppercase, lowercase, Special symbol');     
                 }
             }
         </script>
