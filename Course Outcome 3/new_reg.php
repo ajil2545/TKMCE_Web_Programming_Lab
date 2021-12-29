@@ -26,7 +26,7 @@
                     <td><input type="text" id="drname" pattern="[A-Za-z]{3,}" title="Must contain only letters." name="drname" required></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><input type="reset" name="RESET"><input type="submit" name="submit"></td>
+                    <td style="margin-left:100px;" colspan="2"><input type="reset" name="RESET"><input type="submit" name="submit"></td>
                 </tr>
             </table>
         </form>
