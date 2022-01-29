@@ -26,26 +26,36 @@
                     <td><input type="text" id="drname" pattern="[A-Za-z]{3,}" title="Must contain only letters." name="drname" required></td>
                 </tr>
                 <tr>
-                    <td style="margin-left:100px;" colspan="2"><input type="reset" name="RESET"><input type="submit" name="submit"></td>
+                    <td colspan="2"><input type="reset" name="RESET"><input type="submit" name="submit"></td>
                 </tr>
             </table>
         </form>
     </body>
 </html>
 <?php
-    include "config.php";
-    if(isset($_POST["submit"])){
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $database="hospital";
+    $conn = mysqli_connect($servername, $username, $password, $database);
+    if (!$conn) {
+      die("Connection failed: " . mysqli_connect_error());
+    }
+    if(isset($_POST["submit"]))
+    {
         $fname=$_POST["fname"];
         $lname=$_POST["lname"];
         $age=$_POST["age"];
         $address=$_POST["address"];
         $drname=$_POST["drname"];
         $sql = "INSERT INTO new_reg (fname, lname, age, address, drname) VALUES ('$fname', '$lname', '$age', '$address', '$drname')";
-        if ($conn->query($sql) === TRUE) {
+        if ($conn->query($sql) === TRUE)
+        {
              echo"<script>alert ('Details added successfully!');"
-    . "window.location.href='details.php'</script>";
+                . "window.location.href='details.php'</script>";
         }
-        else {
+        else
+        {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
         mysqli_close($conn);

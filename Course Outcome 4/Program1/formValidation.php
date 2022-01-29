@@ -35,6 +35,24 @@
 <?php
     if(isset($_POST["submit"]))
     {
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $database = "phpmysqlprgm";
+
+        // Create connection
+        $conn = new mysqli($servername, $username, $password, $database);
+
+        // Check connection
+        if ($conn->connect_error)
+        {
+            die("Connection failed: " . $conn->connect_error);
+        }
+        else
+        {
+            echo "Connected successfully";
+        }
+
         $name=$_POST["name"];
         $phone=$_POST["phone"];
         $email=$_POST["email"];
@@ -95,5 +113,15 @@
         {
             echo"<br>Password: ".$psw;
         }
+        $sql = "INSERT INTO registration (name, phone, email, uname, psw) VALUES ('$name', '$phone', '$email', '$uname', '$psw')";
+        if ($conn->query($sql) === TRUE)
+        {
+            echo"<script>alert ('Details added successfully!');"."window.location.href='details.php'</script>";
+        }
+        else
+        {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        }
+        mysqli_close($conn);
     }
 ?>
